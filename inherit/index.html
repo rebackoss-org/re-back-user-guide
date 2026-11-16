@@ -1,0 +1,1087 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Install, configure, back up, and restore with re-back.">
+      
+      
+        <meta name="author" content="re-back contributors">
+      
+      
+        <link rel="canonical" href="https://rebackoss-org.github.io/re-back-user-guide/inherit/">
+      
+      
+        <link rel="prev" href="../restore/">
+      
+      
+        <link rel="next" href="../troubleshooting/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>Inheritance workflow - re-back User Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#inheritance-workflow" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="re-back User Guide" class="md-header__button md-logo" aria-label="re-back User Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            re-back User Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Inheritance workflow
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="re-back User Guide" class="md-nav__button md-logo" aria-label="re-back User Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    re-back User Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../initial-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Create the machine account
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backup-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backup settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backup-process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How a backup runs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../restore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Restore files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inheritance workflow
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inheritance workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-inheritance-is-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What inheritance is for
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-comes-across" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What comes across
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before you start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step-by-step
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-step">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-pick-the-machine-to-inherit-from" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Pick the machine to inherit from
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-wait-for-the-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Wait for the transfer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-map-the-sources-drives-to-folders-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Map the source's drives to folders here
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifying-the-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verifying the result
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clearing-backup-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clearing backup state
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../help/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Get help
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-inheritance-is-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What inheritance is for
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-comes-across" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What comes across
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before you start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step-by-step
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-step">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-pick-the-machine-to-inherit-from" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Pick the machine to inherit from
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-wait-for-the-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Wait for the transfer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-map-the-sources-drives-to-folders-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Map the source's drives to folders here
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifying-the-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verifying the result
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clearing-backup-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clearing backup state
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="inheritance-workflow">Inheritance workflow<a class="headerlink" href="#inheritance-workflow" title="Permanent link">&para;</a></h1>
+<p>Inheritance adopts a machine that is already backing up to your account. The
+new install takes over that machine's identity, its ledger of what has been
+sent, and its drive list — so the server sees a machine it already knows, and
+only new or changed files get uploaded. Nothing is re-uploaded and nothing
+already on the account is moved or deleted.</p>
+<p>Use it when you are retiring the machine that used to back up: another PC, a
+Windows box you are moving off, a reinstall of the same host.</p>
+<h2 id="what-inheritance-is-for">What inheritance is for<a class="headerlink" href="#what-inheritance-is-for" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Move a backup to new hardware.</strong> The new machine keeps the old machine's
+  file history instead of starting a second, duplicate set of files.</li>
+<li><strong>Move a backup to another OS.</strong> A Windows install's <code>C:</code> and <code>D:</code> drives can
+  be presented from a Linux box without the server noticing the difference.</li>
+<li><strong>Recover from a broken install.</strong> If the local state is lost but the account
+  still has the machine, inheritance pulls the state back down.</li>
+</ul>
+<h2 id="what-comes-across">What comes across<a class="headerlink" href="#what-comes-across" title="Permanent link">&para;</a></h2>
+<p>Inheritance moves the <em>record</em> of the backup, not the files:</p>
+<table>
+<thead>
+<tr>
+<th>item</th>
+<th>carried</th>
+<th>notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>machine identity (host GUID, account binding)</td>
+<td>yes</td>
+<td>the account keeps seeing one machine, not two</td>
+</tr>
+<tr>
+<td>ledger of every file already sent</td>
+<td>yes</td>
+<td>seeded into the local index, so nothing is re-uploaded</td>
+</tr>
+<tr>
+<td>drive list and volume IDs</td>
+<td>yes</td>
+<td>the folders holding those drives are chosen in step 3</td>
+</tr>
+<tr>
+<td>server-side file numbering</td>
+<td>yes</td>
+<td>new files continue above the inherited counter</td>
+</tr>
+<tr>
+<td>the backed-up files themselves</td>
+<td>no</td>
+<td>they stay on the account; use <a href="../restore/">Restore</a> to get them back</td>
+</tr>
+<tr>
+<td>the source's encryption key or passphrase</td>
+<td><strong>no</strong></td>
+<td>if the source used private encryption, keep that key — restores still need it</td>
+</tr>
+<tr>
+<td>your exclude rules, schedule and other local settings</td>
+<td>no</td>
+<td>this install's own settings are left alone</td>
+</tr>
+</tbody>
+</table>
+<p>The source machine is retired on the account when the transfer commits: it shows
+up renamed <code>old_inactive_…</code> and marked as divorced. Do not start its client
+again — inheritance pauses <em>this</em> install, but the server is never told anything,
+so a source that kept running would still be pushing under the same backup.</p>
+<p>It is not a restore. Inheritance brings across <em>the record of what is backed
+up</em>; restoring brings back <em>the files themselves</em>. If you want files back, use
+<a href="../restore/">Restore</a>.</p>
+<h2 id="before-you-start">Before you start<a class="headerlink" href="#before-you-start" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Sign in with your account password.</strong> Inheritance asks the server for your
+  machine list, and that call needs the password — a session that was restored
+  from a saved key cannot do it. Sign in on the machine card first.</li>
+<li><strong>The target machine must have no backup identity yet.</strong> If it already backs
+  up, the button is greyed out with a <code>?</code> next to it: clear the current backup
+  state first (see <a href="#clearing-backup-state">Clearing backup state</a>).</li>
+<li><strong>The source machine must still be listed on the account.</strong> Inheritance
+  reads the source's state archive from the server. Machines that cannot be
+  inherited are shown greyed out in the picker with the reason.</li>
+<li><strong>Quit the source's backup client first.</strong> It is retired on the account once
+  the transfer commits, and nothing here can pause it remotely.</li>
+<li><strong>Have the folders ready.</strong> The last step asks where each of the source's
+  drives lives on this machine. You can also skip a drive and map it later.</li>
+</ul>
+<p>Inheritance pauses backups. It does that locally — the daemon is not started
+and nothing is sent — so the old and new machine can never both push. The
+server is not told anything about being paused.</p>
+<h2 id="step-by-step">Step-by-step<a class="headerlink" href="#step-by-step" title="Permanent link">&para;</a></h2>
+<h3 id="1-pick-the-machine-to-inherit-from">1. Pick the machine to inherit from<a class="headerlink" href="#1-pick-the-machine-to-inherit-from" title="Permanent link">&para;</a></h3>
+<p>On <strong>Home</strong>, in the machine account card, press <strong>Inherit existing backup</strong>.
+Choose the source machine from the dropdown and press <strong>OK</strong>.</p>
+<p>The source's name is not reused: a throwaway host is registered for the
+transfer (<code>tmp-inhrt-…</code>), and the server retires it once the state has been
+committed. If the transfer fails before that point, the throwaway host is kept
+so you can retry without starting over.</p>
+<h3 id="2-wait-for-the-transfer">2. Wait for the transfer<a class="headerlink" href="#2-wait-for-the-transfer" title="Permanent link">&para;</a></h3>
+<p>The wizard shows the download, the commit and the adoption as they happen:
+archive size, ledger file and line counts, then the index seeding. Backups stay
+off for the whole step.</p>
+<p>If it fails, backups stay off and the error is shown with the server's reason.
+Press <strong>OK</strong> again to retry — a retry after the commit never re-commits the
+archive, so a half-finished transfer cannot double-apply.</p>
+<h3 id="3-map-the-sources-drives-to-folders-here">3. Map the source's drives to folders here<a class="headerlink" href="#3-map-the-sources-drives-to-folders-here" title="Permanent link">&para;</a></h3>
+<p>The state archive knows the source's drives (<code>C:</code>, <code>D:</code>, …) but not where those
+drives live on this machine, so this is the last step and it cannot be asked
+earlier. Each drive is listed with the number of files the inherited ledger has
+for it; type the folder that drive's root is mounted at.</p>
+<p>The drive letter is the identity. A file at <code>/mnt/nas/movies/a.mkv</code> on this
+machine, with <code>D:</code> mapped to <code>/mnt/nas</code>, is still presented to the server as:</p>
+<div class="highlight"><pre><span></span><code>D:\movies\a.mkv
+</code></pre></div>
+<p>That is byte-for-byte the path the old machine used, so the server recognises
+the file instead of uploading a copy. Ledger paths are never rewritten — only
+the root folder is local. Both of these are the same mapping:</p>
+<table>
+<thead>
+<tr>
+<th>This machine</th>
+<th><code>D:</code> mapped to</th>
+<th>Presented as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/mnt/nas/movies/a.mkv</code></td>
+<td><code>/mnt/nas</code></td>
+<td><code>D:\movies\a.mkv</code></td>
+</tr>
+<tr>
+<td><code>/mnt/win-d/movies/a.mkv</code></td>
+<td><code>/mnt/win-d</code></td>
+<td><code>D:\movies\a.mkv</code></td>
+</tr>
+</tbody>
+</table>
+<p>Rules the wizard enforces:</p>
+<ul>
+<li><strong>One folder per drive, never nested.</strong> A file belongs to the first root that
+  contains it, so <code>D:</code> inside <code>C:</code>'s folder would file one drive's data under
+  the other's identity. Overlapping roots are refused.</li>
+<li><strong>The folder must exist and be readable.</strong> A path that is not there now would
+  fail the first backup anyway.</li>
+<li><strong>Blank means skip.</strong> A drive you leave empty keeps its identity and its
+  backed-up files, but nothing under it is walked here. Its files stay on the
+  account; a restore of those files will ask you for a destination.</li>
+<li><strong>At least one drive has to be mapped.</strong> Skipping all of them would finish the
+  inherit with nothing to back up, so it is refused — clear the backup state
+  instead if you meant to abandon it.</li>
+<li><strong>One folder per drive letter</strong>, and not a folder this machine already backs
+  up: two roots over the same files would present them twice.</li>
+</ul>
+<p>Press <strong>Save mapping</strong>. The gate clears, the daemon starts and the index is
+rebuilt from the inherited ledger against the folders you chose.</p>
+<h2 id="verifying-the-result">Verifying the result<a class="headerlink" href="#verifying-the-result" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Home</strong> shows the source machine's identity, not a new one, and the backup
+  state is no longer paused.</li>
+<li><strong>Backup → status</strong> reports a file check that is clean rather than frozen, and
+  the file and byte totals match what the account already had.</li>
+<li>Run one backup. It should send nothing (or only what changed since the source
+  last ran) — if it starts uploading the whole corpus, the drive mapping is
+  wrong: the paths it is producing do not match the ledger.</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<p><strong>The button is greyed out.</strong> Hover the <code>?</code> beside it. Either you are not signed
+in with a password, or this machine already has an identity — clear the backup
+state first.</p>
+<p><strong>It stopped at "waiting for a local folder".</strong> The identity and ledger are
+adopted; only the drive mapping is left. Reloading the page returns to the
+mapping pane. It is also reachable headlessly: <code>GET /api/v1/inherit/status</code>
+lists the pending drives (each with its letter, file count and volume ID), and
+<code>POST /api/v1/inherit/map</code> takes one decision per drive — a folder, or
+<code>"skip": true</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"volumes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">"vol_guid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v000…123"</span><span class="p">,</span><span class="w"> </span><span class="nt">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/mnt/win-d"</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">"vol_guid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v000…456"</span><span class="p">,</span><span class="w"> </span><span class="nt">"skip"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Every pending drive needs a decision (<code>incomplete_mapping</code> otherwise), and a
+rejected mapping applies nothing. A successful call clears the gate and starts
+the daemon, exactly as <strong>Save mapping</strong> does. Like every other step that changes
+state, <code>inherit/map</code> needs this app's session cookie (<code>inherit/status</code> does not),
+so sign in first or send the same session the web UI uses.</p>
+<p><strong>It failed before finishing.</strong> Backups stay off and the throwaway host is kept.
+Press <strong>OK</strong> to retry. If the retry cannot proceed, clear the backup state and
+start again.</p>
+<p><strong>A mapped drive says its folder is not readable.</strong> Fix permissions on the
+host, then re-enter the path. Nothing was applied — a mapping is all or nothing.</p>
+<p><strong>The first backup wants to upload everything.</strong> The mapped root does not
+correspond to the drive's real contents, so the relative paths do not line up.
+Remove the mapping and point the drive at the folder that actually holds its
+tree.</p>
+<p><strong>Backups stay frozen after a successful inherit.</strong> The account holds an older,
+larger copy of a file-check manifest than the inherited ledger rebuilds. The
+client declares the shrink to the server instead of re-uploading; if a run still
+reports <code>bzcf_shrunk_on_client</code>, update the client and re-run.</p>
+<p><strong>You added a file on a day the source already backed up.</strong> Nothing to do. A
+manifest the account already holds may not be re-sent smaller, and ours rebuilds
+denser than the other client's, so the client re-encodes that day's manifest with
+weaker compression until it clears the held size — logged as
+<code>bzcomb grow &lt;date&gt;: rebuild … re-encoded …</code> — and uploads it. The records are
+unchanged; only the compressed bytes differ. A day with no new files is still
+only declared, never uploaded.</p>
+<h2 id="clearing-backup-state">Clearing backup state<a class="headerlink" href="#clearing-backup-state" title="Permanent link">&para;</a></h2>
+<p><strong>Backup settings → Dangerous → Clear backup state</strong> resets this machine: the
+identity, the ledger, the scan index, the account and host binding, the inherit
+record, and the encryption settings — including the passphrase and the key that
+wraps your file keys. The daemon stops. Type <code>CLEAR BACKUP</code> to confirm.</p>
+<p>It keeps what describes <em>what to back up</em>: the volume list with its paths, drive
+letters and volume IDs, the include/exclude rules, the schedule, the run history
+and the logs.</p>
+<p><strong>It does not delete backed-up data.</strong> Files already on the account stay there
+and belong to the account, not to this install. Encrypted files whose passphrase
+you just discarded may no longer be readable, though, so clear only when you
+mean it.</p>
+<p>This is also the way out of an inheritance that is stuck: clearing removes the
+adopted identity so a fresh inherit (or a fresh machine) can start.</p>
+<p>Next: <a href="../troubleshooting/">Troubleshooting</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>

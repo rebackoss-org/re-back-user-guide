@@ -1,0 +1,1433 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Install, configure, back up, and restore with re-back.">
+      
+      
+        <meta name="author" content="re-back contributors">
+      
+      
+        <link rel="canonical" href="https://rebackoss-org.github.io/re-back-user-guide/install/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../initial-setup/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>Install - re-back User Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#install-re-back" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="re-back User Guide" class="md-header__button md-logo" aria-label="re-back User Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            re-back User Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Install
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="re-back User Guide" class="md-nav__button md-logo" aria-label="re-back User Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    re-back User Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#option-1-linux-install-script-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Linux install script (recommended)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option 1: Linux install script (recommended)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-get-a-binary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Get a binary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-run-the-installer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Run the installer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-open-the-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Open the interface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-service-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Service commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upgrade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remove
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-2-native-binary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Native binary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option 2: Native binary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Build
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-its-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Create its directories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-run-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Run it
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-3-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 3: Docker Compose
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option 3: Docker Compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-edit-the-source-mounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Edit the source mounts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-start-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Start it
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-open-the-interface_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Open the interface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-logs-and-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Logs and storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-4-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 4: Kubernetes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option 4: Kubernetes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-review-the-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Review the manifest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-apply-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Apply it
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-reach-the-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Reach the interface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-important-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Important limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#after-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../initial-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Create the machine account
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backup-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backup settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backup-process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How a backup runs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../restore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Restore files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inherit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inheritance workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../help/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Get help
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#option-1-linux-install-script-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Linux install script (recommended)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option 1: Linux install script (recommended)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-get-a-binary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Get a binary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-run-the-installer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Run the installer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-open-the-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Open the interface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-service-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Service commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upgrade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remove
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-2-native-binary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Native binary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option 2: Native binary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Build
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-its-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Create its directories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-run-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Run it
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-3-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 3: Docker Compose
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option 3: Docker Compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-edit-the-source-mounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Edit the source mounts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-start-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Start it
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-open-the-interface_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Open the interface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-logs-and-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Logs and storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-4-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 4: Kubernetes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option 4: Kubernetes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-review-the-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Review the manifest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-apply-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Apply it
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-reach-the-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Reach the interface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-important-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Important limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#after-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="install-re-back">Install re-back<a class="headerlink" href="#install-re-back" title="Permanent link">&para;</a></h1>
+<p>re-back is a single executable. There is nothing else to install beside it —
+the files it needs on first start are built into the binary. Choose the method
+that matches where you want it to run:</p>
+<ul>
+<li><a href="#option-1-linux-install-script-recommended">Linux install script (systemd)</a></li>
+<li><a href="#option-2-native-binary">Native binary without the script</a></li>
+<li><a href="#option-3-docker-compose">Docker Compose</a></li>
+<li><a href="#option-4-kubernetes">Kubernetes</a></li>
+</ul>
+<p>All options need a Backblaze account and outbound HTTPS access. The web
+interface listens on port <code>8080</code> by default.</p>
+<blockquote>
+<p><strong>Keep the web interface private.</strong> Settings and backup controls are not
+password-protected. Anyone who can reach the port can change what is backed
+up, start a backup, or start a restore. Use localhost, a private LAN, a
+firewall, or a VPN. Do not publish port 8080 on the internet.</p>
+</blockquote>
+<h2 id="option-1-linux-install-script-recommended">Option 1: Linux install script (recommended)<a class="headerlink" href="#option-1-linux-install-script-recommended" title="Permanent link">&para;</a></h2>
+<p>The script installs a systemd service, keeps configuration separate from the
+large state directory, and starts re-back at boot.</p>
+<h3 id="1-get-a-binary">1. Get a binary<a class="headerlink" href="#1-get-a-binary" title="Permanent link">&para;</a></h3>
+<p>re-back is distributed to invited users; there is no public download page. Use
+the <code>re-back</code> binary from the release you were given and put it at
+<code>deploy/re-back</code>.</p>
+<p>Building from source requires access to the private repository. With Go 1.27 or
+newer, from a source checkout you already have access to:</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span><span class="nb">cd</span><span class="w"> </span>app<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>go<span class="w"> </span>build<span class="w"> </span>-trimpath<span class="w"> </span>-ldflags<span class="w"> </span><span class="s2">"-s -w"</span><span class="w"> </span>-o<span class="w"> </span>../deploy/re-back<span class="w"> </span>.<span class="o">)</span>
+</code></pre></div>
+<h3 id="2-run-the-installer">2. Run the installer<a class="headerlink" href="#2-run-the-installer" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>bash<span class="w"> </span>deploy/install.sh<span class="w"> </span>install<span class="w"> </span>--bin<span class="w"> </span><span class="s2">"</span><span class="nv">$PWD</span><span class="s2">/deploy/re-back"</span>
+</code></pre></div>
+<p>The installer places:</p>
+<table>
+<thead>
+<tr>
+<th>What</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Program</td>
+<td><code>/usr/local/bin/re-back</code></td>
+</tr>
+<tr>
+<td>systemd unit</td>
+<td><code>/etc/systemd/system/re-back.service</code></td>
+</tr>
+<tr>
+<td>Configuration</td>
+<td><code>/etc/re-back/config.json</code></td>
+</tr>
+<tr>
+<td>State (identity, index, run history)</td>
+<td><code>/var/lib/re-back</code></td>
+</tr>
+<tr>
+<td>Logs</td>
+<td><code>/var/log/re-back</code></td>
+</tr>
+</tbody>
+</table>
+<p>By default the service runs as <strong>root</strong>, because a backup agent that cannot
+read a protected home directory silently misses files. To run with less
+privilege:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>bash<span class="w"> </span>deploy/install.sh<span class="w"> </span>install<span class="w"> </span>--bin<span class="w"> </span><span class="s2">"</span><span class="nv">$PWD</span><span class="s2">/deploy/re-back"</span><span class="w"> </span>--user<span class="w"> </span>re-back
+</code></pre></div>
+<p>The <code>re-back</code> user must be able to read every source volume. A system user with
+no home directory will not be able to read another user's <code>0700</code> home folder
+unless you grant access deliberately. Check before choosing this option.</p>
+<h3 id="3-open-the-interface">3. Open the interface<a class="headerlink" href="#3-open-the-interface" title="Permanent link">&para;</a></h3>
+<p>On the same machine:</p>
+<div class="highlight"><pre><span></span><code>http://localhost:8080
+</code></pre></div>
+<p>From another machine on your private network, use the server's address:</p>
+<div class="highlight"><pre><span></span><code>http://SERVER-IP:8080
+</code></pre></div>
+<p>If the page does not load, see <a href="../troubleshooting/">Troubleshooting</a>.</p>
+<h3 id="4-service-commands">4. Service commands<a class="headerlink" href="#4-service-commands" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>re-back
+sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>re-back
+sudo<span class="w"> </span>journalctl<span class="w"> </span>-u<span class="w"> </span>re-back<span class="w"> </span>-f
+</code></pre></div>
+<h3 id="upgrade">Upgrade<a class="headerlink" href="#upgrade" title="Permanent link">&para;</a></h3>
+<p>Build or copy the new binary over <code>deploy/re-back</code>, then run the installer
+again. It replaces the program and unit but leaves configuration and state in
+place:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>bash<span class="w"> </span>deploy/install.sh<span class="w"> </span>install<span class="w"> </span>--bin<span class="w"> </span><span class="s2">"</span><span class="nv">$PWD</span><span class="s2">/deploy/re-back"</span>
+</code></pre></div>
+<h3 id="remove">Remove<a class="headerlink" href="#remove" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>bash<span class="w"> </span>deploy/install.sh<span class="w"> </span>uninstall
+</code></pre></div>
+<p>This removes the program and service but <strong>keeps all backup state</strong>, so a later
+install can pick up where it left off.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>bash<span class="w"> </span>deploy/install.sh<span class="w"> </span>purge
+</code></pre></div>
+<p>This also deletes configuration, identity, indexes, and restore history. The
+next install will need a new machine account. Do not use <code>purge</code> as a normal
+upgrade step.</p>
+<h2 id="option-2-native-binary">Option 2: Native binary<a class="headerlink" href="#option-2-native-binary" title="Permanent link">&para;</a></h2>
+<p>Use this when you want to run the binary yourself, for example under your own
+service manager, in a one-off test, or inside a system you already manage.</p>
+<h3 id="1-build">1. Build<a class="headerlink" href="#1-build" title="Permanent link">&para;</a></h3>
+<p>Building requires access to the private repository. With Go 1.27 or newer, from
+a source checkout you already have access to:</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span><span class="nb">cd</span><span class="w"> </span>app<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>go<span class="w"> </span>build<span class="w"> </span>-trimpath<span class="w"> </span>-ldflags<span class="w"> </span><span class="s2">"-s -w"</span><span class="w"> </span>-o<span class="w"> </span>../re-back<span class="w"> </span>.<span class="o">)</span>
+</code></pre></div>
+<p>If you received a prebuilt binary, use that and skip this step.</p>
+<h3 id="2-create-its-directories">2. Create its directories<a class="headerlink" href="#2-create-its-directories" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>install<span class="w"> </span>-d<span class="w"> </span>-m<span class="w"> </span><span class="m">0755</span><span class="w"> </span>/etc/re-back<span class="w"> </span>/var/log/re-back
+sudo<span class="w"> </span>install<span class="w"> </span>-d<span class="w"> </span>-m<span class="w"> </span><span class="m">0700</span><span class="w"> </span>/var/lib/re-back
+</code></pre></div>
+<h3 id="3-run-it">3. Run it<a class="headerlink" href="#3-run-it" title="Permanent link">&para;</a></h3>
+<p>Run as root so it can read everything you select:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>env<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="nv">BBAPP_CONFIG_DIR</span><span class="o">=</span>/etc/re-back<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="nv">BBAPP_STATE_DIR</span><span class="o">=</span>/var/lib/re-back<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="nv">BBRE_API_LOG</span><span class="o">=</span>/var/log/re-back/api-wire.log<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="nv">BBAPP_ADDR</span><span class="o">=</span>:8080<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./re-back
+</code></pre></div>
+<p><code>BBAPP_ADDR=:8080</code> listens on all interfaces. To restrict access to the local
+machine, use <code>BBAPP_ADDR=127.0.0.1:8080</code>.</p>
+<p>If you do not set <code>BBAPP_CONFIG_DIR</code> and <code>BBAPP_STATE_DIR</code>, both default to
+<code>/config</code>. That is useful in a container, but usually wrong for a host install.</p>
+<p>For a permanent service, use the unit file in <code>deploy/re-back.service</code> as a
+starting point, or use Option 1 and let the installer manage it.</p>
+<h3 id="environment-variables">Environment variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BBAPP_ADDR</code></td>
+<td><code>:8080</code></td>
+<td>Web interface listen address</td>
+</tr>
+<tr>
+<td><code>BBAPP_CONFIG_DIR</code></td>
+<td><code>/config</code></td>
+<td>Directory containing <code>config.json</code></td>
+</tr>
+<tr>
+<td><code>BBAPP_STATE_DIR</code></td>
+<td>value of <code>BBAPP_CONFIG_DIR</code></td>
+<td>Identity, indexes, run history, and other mutable state</td>
+</tr>
+<tr>
+<td><code>BBRE_API_LOG</code></td>
+<td>unset</td>
+<td>Optional wire log for troubleshooting; may contain sensitive request data, so protect it</td>
+</tr>
+</tbody>
+</table>
+<p>For a normal host install, set config and state to separate directories. This
+keeps the large, changing state out of <code>/etc</code>.</p>
+<h2 id="option-3-docker-compose">Option 3: Docker Compose<a class="headerlink" href="#option-3-docker-compose" title="Permanent link">&para;</a></h2>
+<p>The Compose file builds or pulls the image, publishes port <code>8080</code>, and keeps
+configuration and state in named volumes.</p>
+<h3 id="1-edit-the-source-mounts">1. Edit the source mounts<a class="headerlink" href="#1-edit-the-source-mounts" title="Permanent link">&para;</a></h3>
+<p>Open <code>docker-compose.yml</code> and add a read-only mount for each folder you want to
+protect:</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">re-back-config:/config</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">re-back-data:/data</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/mnt/photos:/mnt/photos:ro</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/mnt/documents:/mnt/documents:ro</span>
+</code></pre></div>
+<p>The paths on the right are <strong>inside the container</strong>. Use those container paths
+when you add volumes in the web interface.</p>
+<h3 id="2-start-it">2. Start it<a class="headerlink" href="#2-start-it" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--build
+</code></pre></div>
+<p>If you want to use the published image instead of building locally, comment out
+the <code>build:</code> line first.</p>
+<h3 id="3-open-the-interface_1">3. Open the interface<a class="headerlink" href="#3-open-the-interface_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>http://localhost:8080
+</code></pre></div>
+<p>To keep the port off other network interfaces, change the port mapping to:</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"127.0.0.1:8080:8080"</span>
+</code></pre></div>
+<h3 id="4-logs-and-storage">4. Logs and storage<a class="headerlink" href="#4-logs-and-storage" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f
+</code></pre></div>
+<p><code>re-back-config</code> holds <code>config.json</code>. <code>re-back-data</code> holds the identity, index,
+and run history. Do not remove these volumes unless you intend to start over.</p>
+<p>The container runs as root by default so it can read mounted source trees. If
+you switch to a non-root user, make sure the UID can read every mount.</p>
+<h2 id="option-4-kubernetes">Option 4: Kubernetes<a class="headerlink" href="#option-4-kubernetes" title="Permanent link">&para;</a></h2>
+<p>The manifest in <code>deploy/k8s.yaml</code> creates a single-replica Deployment, a
+Service, and a 50 GiB <code>ReadWriteOnce</code> volume for configuration and state.</p>
+<h3 id="1-review-the-manifest">1. Review the manifest<a class="headerlink" href="#1-review-the-manifest" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Increase the PVC size if you have a very large file count.</li>
+<li>Pin the image tag instead of using <code>latest</code> if you need reproducible upgrades.</li>
+<li>Add a volume and volume mount for each source tree you want to back up.</li>
+</ul>
+<p>The template does <strong>not</strong> include any source mounts. Without one, re-back has
+nothing to back up.</p>
+<p>Example addition to the Deployment:</p>
+<div class="highlight"><pre><span></span><code><span class="w">          </span><span class="nt">volumeMounts</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data</span>
+<span class="w">              </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/data</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">photos</span>
+<span class="w">              </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/mnt/photos</span>
+<span class="w">              </span><span class="nt">readOnly</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">     </span><span class="w w-Error"> </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data</span>
+<span class="w">          </span><span class="nt">persistentVolumeClaim</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">claimName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">re-back-data</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">photos</span>
+<span class="w">          </span><span class="nt">persistentVolumeClaim</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">claimName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">re-back-source-photos</span>
+</code></pre></div>
+<p>Create the source PVC, or use another volume type appropriate for your cluster.
+Then use <code>/mnt/photos</code> as the volume path in the web interface.</p>
+<h3 id="2-apply-it">2. Apply it<a class="headerlink" href="#2-apply-it" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>deploy/k8s.yaml
+</code></pre></div>
+<h3 id="3-reach-the-interface">3. Reach the interface<a class="headerlink" href="#3-reach-the-interface" title="Permanent link">&para;</a></h3>
+<p>The manifest does not create an Ingress. Use a port-forward for the initial
+setup:</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>port-forward<span class="w"> </span>deploy/re-back<span class="w"> </span><span class="m">8080</span>:8080
+</code></pre></div>
+<p>Then open <code>http://localhost:8080</code>. For permanent access, put it behind your
+normal private ingress or VPN. Do not expose it publicly without adding
+authentication.</p>
+<h3 id="4-important-limits">4. Important limits<a class="headerlink" href="#4-important-limits" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Keep <strong>one replica</strong>. The state volume is <code>ReadWriteOnce</code> and the agent is
+  designed as a single instance.</li>
+<li>Do not delete the PVC to "restart" the pod. That deletes the machine identity
+  and the file index.</li>
+<li>The container needs enough CPU, memory, and temporary disk while hashing and
+  uploading. The manifest's requests and limits are a baseline, not a guarantee.</li>
+</ul>
+<h2 id="after-installation">After installation<a class="headerlink" href="#after-installation" title="Permanent link">&para;</a></h2>
+<p>Open the web interface. On first start re-back creates the files it needs under
+its state directory. You should see the <strong>Login</strong> screen with an empty
+<strong>Machine account</strong> card.</p>
+<p>Next: <a href="../initial-setup/">Create the machine account</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>
